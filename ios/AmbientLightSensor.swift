@@ -1,8 +1,9 @@
 @objc(AmbientLightSensor)
 class AmbientLightSensor: NSObject {
 
-  @objc(multiply:withB:withResolver:withRejecter:)
-  func multiply(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
-    resolve(a*b)
+  @objc
+  func getGreeting(_ callback successCallback: 
+RCTResponseSenderBlock) { // Assume name comes from the any native API side
+    successCallback(["Hi, I'm iOS"])
   }
 }

@@ -6,7 +6,9 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-const AmbientLightSensor = NativeModules.AmbientLightSensor  ? NativeModules.AmbientLightSensor  : new Proxy(
+const AmbientLightSensor = NativeModules.AmbientLightSensor
+  ? NativeModules.AmbientLightSensor
+  : new Proxy(
       {},
       {
         get() {
@@ -25,4 +27,8 @@ export function startLightSensor(): void {
 
 export function stopLightSensor(): void {
   return AmbientLightSensor.stopLightSensor();
+}
+
+export function getGreeting(): void {
+  return AmbientLightSensor.getGreeting();
 }
