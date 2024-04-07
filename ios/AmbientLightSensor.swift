@@ -10,4 +10,11 @@ class AmbientLightSensor: NSObject {
         resolve(true)
     }
     
+    
+    @objc func startLightSensor() -> Void {
+    }
+    
+    @objc func stopLightSensor() -> Void {
+    }
+    
 }
