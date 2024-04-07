@@ -1,3 +1,4 @@
-export declare async function hasLightSensor(): Promise<boolean>;
+export declare function hasLightSensor(): Promise<boolean>;
 export declare function startLightSensor(): void;
 export declare function stopLightSensor(): void;
+export declare function getGreeting(): void;
