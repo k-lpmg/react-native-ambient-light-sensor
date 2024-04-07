@@ -1,8 +1,11 @@
+import Foundation
+import UIKit
+import AVFoundation
+
 @objc(AmbientLightSensor)
 class AmbientLightSensor: NSObject {
     
-    @objc func getGreeting(_ callback successCallback:
-  RCTResponseSenderBlock) { // Assume name comes from the any native API side
+    @objc func getGreeting(callback successCallback: RCTResponseSenderBlock) {
     successCallback(["Hi, I'm iOS"])
   }
 }
