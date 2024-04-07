@@ -82,9 +82,4 @@ public class AmbientLightSensorModule extends ReactContextBaseJavaModule impleme
         }
         mSensorManager.unregisterListener(this);
     }
-
-    @ReactMethod
-    public void getGreeting(Callback callback) {
-        callback.invoke("Hi! I'm Android");
-    }
 }

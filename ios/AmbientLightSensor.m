@@ -2,7 +2,7 @@
 
 @interface RCT_EXTERN_MODULE(AmbientLightSensor, NSObject)
 
-RCT_EXTERN_METHOD(getGreeting: (RCTResponseSenderBlock)callback)
+RCT_EXTERN_METHOD(hasLightSensor: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
 + (BOOL)requiresMainQueueSetup
 {

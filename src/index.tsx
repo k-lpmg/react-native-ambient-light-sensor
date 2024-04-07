@@ -28,7 +28,3 @@ export function startLightSensor(): void {
 export function stopLightSensor(): void {
   return AmbientLightSensor.stopLightSensor();
 }
-
-export function getGreeting(): void {
-  return AmbientLightSensor.getGreeting();
-}
