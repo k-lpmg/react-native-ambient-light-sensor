@@ -5,7 +5,7 @@ import AVFoundation
 @objc(AmbientLightSensor)
 class AmbientLightSensor: NSObject {
     
-    @objc func getGreeting(callback successCallback: RCTResponseSenderBlock) {
-    successCallback(["Hi, I'm iOS"])
+  @objc func getGreeting(_ callback: RCTResponseSenderBlock) {
+    callback(["Hi, I'm iOS"])
   }
 }
