@@ -34,8 +34,9 @@ class AmbientLightSensor: RCTEventEmitter, AVCaptureVideoDataOutputSampleBufferD
 
     // Private methods
 
-    private func setupCaptureSession() {
-        guard let camera = AVCaptureDevice.default(for: .video) else { return }
+    func setupCaptureSession() {
+        // 이 부분에서 전면 카메라를 찾습니다.
+        guard let camera = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else { return }
         
         do {
             let cameraInput = try AVCaptureDeviceInput(device: camera)
