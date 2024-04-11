@@ -6,6 +6,9 @@ import React
 
 @objc(AmbientLightSensor)
 class AmbientLightSensor: RCTEventEmitter {
+    let ambientLightSensor = SRSensor.ambientLightSensor;
+    let ambientLightSample = SRAmbientLightSample();
+    
     let queue = DispatchQueue(label: "AmbientLightSensor")
     let eventName = "LightSensor"
 
@@ -22,11 +25,15 @@ class AmbientLightSensor: RCTEventEmitter {
     }
     
     @objc func startLightSensor() -> Void {
-        sendEvent(withName: eventName, body: ["lightValue": 100])
+        let startLux = ambientLightSample.lux;
+        
+        sendEvent(withName: eventName, body: ["lightValue": 100, "startLux": startLux])
     }
     
     @objc func stopLightSensor() -> Void {
-        sendEvent(withName: eventName, body: ["lightValue": 0])
+        let stopLux = ambientLightSample.lux;
+        
+        sendEvent(withName: eventName, body: ["lightValue": 100, "stopLux": stopLux])
     }
     
 }
