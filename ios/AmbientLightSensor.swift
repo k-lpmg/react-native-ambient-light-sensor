@@ -1,14 +1,10 @@
 import Foundation
 import UIKit
 import AVFoundation
-import SensorKit
 import React
 
 @objc(AmbientLightSensor)
 class AmbientLightSensor: RCTEventEmitter {
-    let ambientLightSensor = SRSensor.ambientLightSensor;
-    let ambientLightSample = SRAmbientLightSample();
-    
     let queue = DispatchQueue(label: "AmbientLightSensor")
     let eventName = "LightSensor"
 
@@ -25,15 +21,13 @@ class AmbientLightSensor: RCTEventEmitter {
     }
     
     @objc func startLightSensor() -> Void {
-        let startLux = ambientLightSample.lux;
-        
-        sendEvent(withName: eventName, body: ["lightValue": 100, "startLux": startLux])
+        sendEvent(withName: eventName, body: ["lightValue": 100])
     }
     
     @objc func stopLightSensor() -> Void {
         let stopLux = ambientLightSample.lux;
         
-        sendEvent(withName: eventName, body: ["lightValue": 100, "stopLux": stopLux])
+        sendEvent(withName: eventName, body: ["lightValue": 100])
     }
     
 }
