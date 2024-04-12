@@ -82,5 +82,4 @@ public class AmbientLightSensorModule extends ReactContextBaseJavaModule impleme
         }
         mSensorManager.unregisterListener(this);
     }
-
 }

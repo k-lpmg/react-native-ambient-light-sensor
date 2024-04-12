@@ -1,29 +1,36 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Text, DeviceEventEmitter } from 'react-native';
-import { startLightSensor, stopLightSensor } from 'react-native-ambient-light-sensor';
+import {
+  startLightSensor,
+  stopLightSensor,
+  hasLightSensor,
+} from 'react-native-ambient-light-sensor';
 import { LIGHT_SENSOR } from 'example/constants/constants';
 
 export default function App() {
+  const [hasSensor, setHasSensor] = React.useState<boolean>(false);
   const [result, setResult] = React.useState<number | undefined>();
 
   useEffect(() => {
-      startLightSensor();
-      
-      const subscription = DeviceEventEmitter.addListener(
-        LIGHT_SENSOR,
-        (data: { lightValue: number }) => {
-            setResult(data.lightValue);
-        },
+    hasLightSensor().then(setHasSensor);
+    startLightSensor();
+
+    const subscription = DeviceEventEmitter.addListener(
+      LIGHT_SENSOR,
+      (data: { lightValue: number }) => {
+        setResult(data.lightValue);
+      }
     );
 
     return () => {
-        stopLightSensor();
-        subscription?.remove();
+      stopLightSensor();
+      subscription?.remove();
     };
   }, []);
 
   return (
     <View style={styles.container}>
+      <Text>Device has sensor: {hasSensor}</Text>
       <Text>Light Result Value: {result}</Text>
     </View>
   );
